@@ -1,12 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import AnimatedSection from './AnimatedSection'; 
+import profilePic from '../Assets/pink_avatar.png';
+
 
 const About = () => {
     return (
         <AnimatedSection>
             <div id="about" className="container mx-auto">
-                <h2 className="text-3xl font-bold text-center mb-12 text-pink-500">About Me</h2>
+                {/* <h2 className="text-3xl font-bold text-center mb-12 text-pink-500">About Me</h2> */}
                 <div className="flex flex-col md:flex-row items-center gap-12">
                     <motion.div 
                         className="md:w-1/3"
@@ -16,7 +18,7 @@ const About = () => {
                         transition={{ duration: 0.5 }}
                     >
                         <img 
-                            src="/pink_avatar.png" 
+                            src={profilePic}
                             alt="Hardee" 
                             className="rounded-full shadow-2xl mx-auto border-4 border-pink-200"
                             onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/400x400/fdf2f8/475569?text=Image+Error'; }}

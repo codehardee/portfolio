@@ -1,81 +1,87 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import AnimatedSection from './AnimatedSection'; // Import the helper
-import { IconReact, IconNodeJs, IconDatabase, IconTools } from './Icons';
+import AnimatedSection from './AnimatedSection';
 
 const ExperienceItem = ({ date, title, company, description, index }) => (
-    <div className="mb-8 flex justify-between items-center w-full">
-        <div className={`order-1 w-5/12 ${index % 2 === 0 ? 'text-right' : ''}`}></div>
-        <div className="z-20 flex items-center order-1 bg-pink-500 shadow-xl w-8 h-8 rounded-full">
-            <h1 className="mx-auto font-semibold text-lg text-white">{index + 1}</h1>
-        </div>
-        
-        <motion.div 
-            className={`order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4 border border-pink-100 text-left`}
-            initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-        >
-            <p className="text-sm text-pink-500 font-semibold">{date}</p>
-            <h3 className="mb-3 font-bold text-slate-800 text-xl">{title}</h3>
-            <p className="text-sm leading-snug tracking-wide text-slate-600 text-opacity-100 mb-2">{company}</p>
-            
-            {/* --- THIS IS THE FIX --- */}
-            {/* Replaced the <ul> with a <div> and the <li> with a <p> */}
-            <div className="mt-2 text-slate-500">
-                {description.map((point, i) => (
-                    <p key={i} className="text-sm">
-                        {point}
-                    </p>
-                ))}
-            </div>
-            
-        </motion.div>
+  // This outer div now uses flex-col on mobile and flex-row on medium screens (md) and up
+  <div className={`mb-8 flex md:justify-between items-center w-full ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+    
+    {/* This spacer is hidden on mobile */}
+    <div className="hidden md:block w-5/12"></div>
+    
+    {/* The timeline dot is positioned absolutely relative to the vertical line on mobile */}
+    <div className="z-20 flex items-center order-1 bg-pink-500 shadow-xl w-8 h-8 rounded-full absolute left-4 -ml-4 md:relative md:left-auto md:ml-0">
+      <h1 className="mx-auto font-semibold text-lg text-white">{index + 1}</h1>
     </div>
-
+    
+    {/* The content card takes up the full width on mobile and half the width on desktop */}
+    <motion.div 
+      className="order-1 bg-white rounded-lg shadow-xl w-full ml-10 md:w-5/12 md:ml-0"
+      initial={{ opacity: 0, x: index % 2 === 0 ? 100 : -100 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
+      <div className={`px-6 py-4 text-left ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
+        <p className="text-sm text-pink-500 font-semibold">{date}</p>
+        <h3 className="mb-3 font-bold text-slate-800 text-xl">{title}</h3>
+        <p className="text-sm leading-snug tracking-wide text-slate-600 text-opacity-100 mb-2">{company}</p>
+        <div className="mt-2 text-slate-500">
+          {description.map((point, i) => (
+            <p key={i} className="text-sm">
+              {point}
+            </p>
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  </div>
 );
+
 
 const Experience = () => {
     const experienceData = [
-        {
-            date: "Sept 2025 - Present",
-            title: "Research Student",
-            company: "Research & Innovation Lambton College",
-            description: [
-            "Engaged in applied research projects within the IT, Data, and Programming stream, focusing on React.js and modern web technologies.Collaborating with researchers and industry partners to design and build interactive, data-driven applications. Developing skills in frontend development, API integration, and teamwork in a research-driven environment."   
-            ]
-        },
-        {
-            date: "Jan 2025 - Jun 2025",
-            title: "Full Stack Developer Intern (MEAN Stack)",
-            company: "RewardsX",
-            description: [
-                "Developed and maintained backend REST APIs using Express.js to manage rewards, merchants, and user operations. I also wrote unit and integration tests with Jest and Supertest to ensure robust API functionality and handle edge cases effectively. On the frontend, I identified and fixed critical bugs in an AngularJS application, which significantly improved its stability and cross-browser compatibility. Throughout the development process, I actively collaborated in agile sprints to deliver full-stack features across both backend services and UI components."
-            ]
-        },
-        {
-            date: "Aug 2023 - Mar 2024",
-            title: "Backend Developer",
-            company: "Elixir Techne",
-            description: [
-            "Worked on “Money Circle,” a collaborative savings platform built with a Django REST backend. As part of the project, I implemented serverless AWS Lambda functions integrated with API Gateway and S3 for efficient and scalable operations. I handled testing and monitoring using Postman and AWS CloudWatch to ensure system reliability. Development tasks were carried out using the AWS Cloud9 IDE, and I collaborated with the team using Git in a structured workflow."]
-        },
-        {
-            date: "Aug 2022 - Aug 2023",
-            title: "Web Designer",
-            company: "CodePoets Pvt Ltd.",
-            description: [
-            "Designed and developed responsive websites using WordPress, Shopify, and custom HTML/CSS, delivering tailored solutions for a variety of businesses. To enhance user experience and align with client branding, I created UI/UX mockups in Figma that translated effectively across digital platforms. Additionally, I contributed to production-level React.js applications by identifying and resolving bugs, conducting manual testing, and ensuring smooth integration between frontend components and backend services."]
-        }
+      {
+        date: "Sept 2025 - Present",
+        title: "Research Student",
+        company: "Research & Innovation Lambton College",
+        description: [
+          "Engaged in applied research projects within the IT, Data, and Programming stream, focusing on React.js and modern web technologies.Collaborating with researchers and industry partners to design and build interactive, data-driven applications. Developing skills in frontend development, API integration, and teamwork in a research-driven environment."   
+        ]
+      },
+      {
+        date: "Jan 2025 - Jun 2025",
+        title: "Full Stack Software developer Intern (MEAN Stack)",
+        company: "RewardsX",
+        description: [
+          "Developed and maintained backend REST APIs using Express.js to manage rewards, merchants, and user operations. I also wrote unit and integration tests with Jest and Supertest to ensure robust API functionality and handle edge cases effectively. On the frontend, I identified and fixed critical bugs in an AngularJS application, which significantly improved its stability and cross-browser compatibility. Throughout the development process, I actively collaborated in agile sprints to deliver full-stack features across both backend services and UI components."
+        ]
+      },
+      {
+        date: "Aug 2023 - Mar 2024",
+        title: "Backend Developer",
+        company: "Elixir Techne",
+        description: [
+          "Worked on “Money Circle,” a collaborative savings platform built with a Django REST backend. As part of the project, I implemented serverless AWS Lambda functions integrated with API Gateway and S3 for efficient and scalable operations. I handled testing and monitoring using Postman and AWS CloudWatch to ensure system reliability. Development tasks were carried out using the AWS Cloud9 IDE, and I collaborated with the team using Git in a structured workflow."
+        ]
+      },
+      {
+        date: "Aug 2022 - Aug 2023",
+        title: "Web Designer",
+        company: "CodePoets Pvt Ltd.",
+        description: [
+          "Designed and developed responsive websites using WordPress, Shopify, and custom HTML/CSS, delivering tailored solutions for a variety of businesses. To enhance user experience and align with client branding, I created UI/UX mockups in Figma that translated effectively across digital platforms. Additionally, I contributed to production-level React.js applications by identifying and resolving bugs, conducting manual testing, and ensuring smooth integration between frontend components and backend services."
+        ]
+      }
     ];
 
     return (
         <AnimatedSection>
             <div id="experience" className="container mx-auto">
-                <h2 className="text-3xl font-bold text-center mb-20 text-pink-500">Work Experience</h2>
-                <div className="relative wrap overflow-hidden p-10 h-full">
-                    <div className="border-2-2 absolute border-opacity-20 border-pink-300 h-full border" style={{left: '50%'}}></div>
+                <h2 className="text-3xl font-bold text-center mb-12 md:mb-20 text-pink-500">Work Experience</h2>
+                <div className="relative wrap overflow-hidden p-4 md:p-10 h-full">
+                    {/* The vertical line is positioned to the left on mobile and in the center on desktop */}
+                    <div className="absolute border-opacity-20 border-pink-300 h-full border-2 left-4 md:left-1/2"></div>
                     {experienceData.map((item, index) => (
                         <ExperienceItem key={index} {...item} index={index} />
                     ))}
