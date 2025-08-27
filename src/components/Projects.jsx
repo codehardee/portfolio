@@ -2,12 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import AnimatedSection from './AnimatedSection';
 
-import project1 from '../assets/Projects/project1.png';
-import project2 from '../assets/Projects/project2.png';
-import project3 from '../assets/Projects/project3.png';
-import project4 from '../assets/Projects/project4.png';
-import project5 from '../assets/Projects/project5.png';
-import project6 from '../assets/Projects/project6.png';
+import project1 from '../Assets/Projects/project1.png';
+import project2 from '../Assets/Projects/project2.png';
+import project3 from '../Assets/Projects/project3.png';
+import project4 from '../Assets/Projects/project4.png';
+import project5 from '../Assets/Projects/project5.png';
+import project6 from '../Assets/Projects/project6.png';
 
 const ProjectCard = ({ title, description, imageUrl, tags, liveUrl, githubUrl }) => {
     return (
