@@ -42,15 +42,13 @@ const ExperienceItem = ({ date, title, company, description, index }) => (
 const Experience = () => {
     const experienceData = [
       {
-        date: "Sept 2025 - Present",
-        title: "Research Student",
+        title: "Software Developer",
         company: "Research & Innovation Lambton College",
         description: [
-          "Engaged in applied research projects within the IT, Data, and Programming stream, focusing on React.js and modern web technologies.Collaborating with researchers and industry partners to design and build interactive, data-driven applications. Developing skills in frontend development, API integration, and teamwork in a research-driven environment."   
+          "Built a full-stack seat map editor and booking system using React.js, delivering a high-performance and interactive UI with a scalable component architecture. Designed and implemented backend APIs using Node.js with Hono/Express-style services and PostgreSQL (Drizzle ORM) to manage seat maps, sections, and booking workflows. Engineered JSON-driven data pipelines and UUID-based seat persistence to ensure reliable synchronization between frontend state and normalized backend storage. Improved overall performance and reliability by optimizing React hooks, building reusable components, and implementing automated testing with Jest and React Testing Library."
         ]
       },
       {
-        date: "Jan 2025 - Jun 2025",
         title: "Full Stack Software developer Intern (MEAN Stack)",
         company: "RewardsX",
         description: [
@@ -58,15 +56,13 @@ const Experience = () => {
         ]
       },
       {
-        date: "Aug 2023 - Mar 2024",
         title: "Backend Developer",
         company: "Elixir Techne",
         description: [
-          "Worked on “Money Circle,” a collaborative savings platform built with a Django REST backend. As part of the project, I implemented serverless AWS Lambda functions integrated with API Gateway and S3 for efficient and scalable operations. I handled testing and monitoring using Postman and AWS CloudWatch to ensure system reliability. Development tasks were carried out using the AWS Cloud9 IDE, and I collaborated with the team using Git in a structured workflow."
+        "Worked on “Money Circle”, a collaborative savings platform built with a Django REST backend. Deployed and managed serverless backend services using AWS Lambda with request routing handled through AWS API Gateway. Implemented scalable file storage and data handling using Amazon S3, integrating cloud services to ensure reliable processing. Monitored system performance using AWS CloudWatch, tested APIs with Postman, and developed Python utility modules with automated testing using PyTest."  
         ]
       },
       {
-        date: "Aug 2022 - Aug 2023",
         title: "Web Designer",
         company: "CodePoets Pvt Ltd.",
         description: [
